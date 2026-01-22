@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background: linear-gradient(135deg, #fdf2f8 0%, #ffffff 100%);
+  min-height: 100vh;
+  color: #374151;
+}
+
+/* Custom Gradients */
+.gradient-pink {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+}
+
+.gradient-blue {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+.gradient-text-pink {
+  background: linear-gradient(135deg, #ec4899, #db2777);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* FIXED: Progress Bar Animation */
+.progress-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, #ec4899, #3b82f6);
+  width: 0%;
+  animation: progressAnimation 1.5s ease-out forwards;
+}
+
+/* Individual progress bar widths */
+.progress-90 {
+  --target-width: 90%;
+}
+.progress-85 {
+  --target-width: 85%;
+}
+.progress-80 {
+  --target-width: 80%;
+}
+.progress-75 {
+  --target-width: 75%;
+}
+.progress-65 {
+  --target-width: 65%;
+}
+.progress-70 {
+  --target-width: 70%;
+}
+
+@keyframes progressAnimation {
+  to {
+    width: var(--target-width, 0%);
+  }
+}
+
+/* Skill Percentage Gradient Text */
+.skill-percent {
+  background: linear-gradient(135deg, #ec4899, #3b82f6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+/* Section Title Underline */
+.section-title::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #ec4899, #3b82f6);
+  margin: 10px auto 30px;
+  border-radius: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fdf2f8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ec4899, #3b82f6);
+  border-radius: 4px;
+}
+
+/* Animation Classes */
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+/* Education Timeline */
+.timeline-item {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 40px;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #ec4899;
+  border: 3px solid white;
+  box-shadow: 0 0 0 3px #fce7f3;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 21px;
+  width: 2px;
+  height: calc(100% + 19px);
+  background: #ec4899;
+}
+
+.timeline-item:last-child::after {
+  display: none;
+}
+
+/* Card styling */
+.card {
+  background: white;
+  border: 1px solid #fce7f3;
+  box-shadow: 0 4px 6px rgba(236, 72, 153, 0.1);
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(236, 72, 153, 0.15);
+}
+
+/* Skill Box */
+.skill-box {
+  background: white;
+  border: 2px solid #fce7f3;
+  border-radius: 16px;
+  padding: 25px;
+  transition: all 0.3s ease;
+  text-align: center;
+  height: 100%;
+}
+
+.skill-box:hover {
+  transform: translateY(-8px);
+  border-color: #ec4899;
+  box-shadow: 0 15px 30px rgba(236, 72, 153, 0.15);
+}
+
+.skill-icon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  font-size: 2.2rem;
+  margin: 0 auto 20px;
+  background: linear-gradient(135deg, #fce7f3 0%, #fdf2f8 100%);
+  color: #ec4899;
+}
+
+/* Navbar hover underline with Gradient */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #ec4899, #3b82f6);
+  bottom: -5px;
+  left: 0;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Project card height */
+.project-card {
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-image {
+  height: 200px;
+  overflow: hidden;
+}
+
+.project-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pink accent for all interactive elements */
+.btn-pink {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-pink:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(236, 72, 153, 0.3);
+}
+
+.btn-outline-pink {
+  border: 2px solid #ec4899;
+  color: #ec4899;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-pink:hover {
+  background: #fce7f3;
+  transform: translateY(-3px);
+}
+
+/* Mobile menu toggle icon */
+#menu-btn i {
+  transition: transform 0.3s ease;
+}
+
+#menu-btn.active i {
+  transform: rotate(90deg);
+}
