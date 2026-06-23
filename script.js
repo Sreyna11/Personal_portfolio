@@ -142,4 +142,51 @@
             }, 500);
           });
         }
+
+        // --- DARK MODE LOGIC ---
+        const themeToggleDesktop = document.getElementById("theme-toggle-desktop");
+        const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+        const themeIcons = document.querySelectorAll("#theme-toggle-desktop i, #theme-toggle-mobile i");
+
+        // Check for saved user preference, if any, on load of the website
+        const userTheme = localStorage.getItem("theme");
+        const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+        const themeCheck = () => {
+          if (userTheme === "dark" || (!userTheme && systemTheme)) {
+            document.documentElement.classList.add("dark");
+            updateIcons(true);
+            return;
+          }
+          updateIcons(false);
+        };
+
+        const updateIcons = (isDark) => {
+          themeIcons.forEach((icon) => {
+            if (isDark) {
+              icon.classList.remove("ri-moon-fill");
+              icon.classList.add("ri-sun-fill");
+            } else {
+              icon.classList.remove("ri-sun-fill");
+              icon.classList.add("ri-moon-fill");
+            }
+          });
+        };
+
+        const themeSwitch = () => {
+          if (document.documentElement.classList.contains("dark")) {
+            document.documentElement.classList.remove("dark");
+            localStorage.setItem("theme", "light");
+            updateIcons(false);
+            return;
+          }
+          document.documentElement.classList.add("dark");
+          localStorage.setItem("theme", "dark");
+          updateIcons(true);
+        };
+
+        themeToggleDesktop.addEventListener("click", themeSwitch);
+        themeToggleMobile.addEventListener("click", themeSwitch);
+
+        themeCheck();
       }); 
